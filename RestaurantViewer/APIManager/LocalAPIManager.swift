@@ -9,10 +9,14 @@
 import RxSwift
 import CoreLocation
 
-class LocalAPIManager: APIManager {    
+class LocalAPIManager: APIManager {
+    var onFetchRestaurants: ((CLLocationCoordinate2D, Double) -> Void)?
+    var onFetchRestaurant: ((String) -> Void)?
+    
     var failResponse = false
     
     func fetchRestaurants(aroundCoordinate coordinate: CLLocationCoordinate2D, withRadius radius: Double) -> Observable<[RestaurantLocation]> {
+        onFetchRestaurants?(coordinate, radius)
         return Single<[RestaurantLocation]>.create { single in
             do {
                 let response: RestaurantLocationsResponse = try JSONReader.decodableFromFile(named: !self.failResponse ? "RestaurantLocationsResponse" : "Empty")
@@ -27,6 +31,7 @@ class LocalAPIManager: APIManager {
     }
     
     func fetchRestaurant(forID id: String) -> Observable<RestaurantDetails> {
+        onFetchRestaurant?(id)
         return Single<RestaurantDetails>.create { single in
             do {
                 let response: RestaurantDetailsResponse = try JSONReader.decodableFromFile(named: !self.failResponse ? "RestaurantDetailsResponse" : "Empty")
