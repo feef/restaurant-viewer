@@ -1,0 +1,1203 @@
+{
+    "meta": {
+        "code": 200,
+        "requestId": "5f4a34867008ac04a8b6f329"
+    },
+    "response": {
+        "venues": [
+            {
+                "id": "4d54daecba5b224b50ff0714",
+                "name": "RK Basisschool De Satelliet",
+                "location": {
+                    "address": "Kometensingel 52-54",
+                    "lat": 52.41482876448346,
+                    "lng": 4.893361069731647,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 52.41482876448346,
+                            "lng": 4.893361069731647
+                        }
+                    ],
+                    "distance": 50,
+                    "postalCode": "1033BW",
+                    "cc": "NL",
+                    "city": "Amsterdam",
+                    "state": "Noord-Holland",
+                    "country": "Nederland",
+                    "formattedAddress": [
+                        "Kometensingel 52-54",
+                        "1033BW Amsterdam",
+                        "Nederland"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d13b941735",
+                        "name": "School",
+                        "pluralName": "Schools",
+                        "shortName": "School",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/building/school_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "referralId": "v-1598698924",
+                "hasPerk": false
+            },
+            {
+                "id": "5720dbc4cd10ac3bcf481793",
+                "name": "Spaanders",
+                "location": {
+                    "address": "Zonneplein 4",
+                    "lat": 52.41275,
+                    "lng": 4.89069,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 52.41275,
+                            "lng": 4.89069
+                        }
+                    ],
+                    "distance": 244,
+                    "postalCode": "1033 EK",
+                    "cc": "NL",
+                    "city": "Amsterdam",
+                    "state": "Noord-Holland",
+                    "country": "Nederland",
+                    "formattedAddress": [
+                        "Zonneplein 4",
+                        "1033 EK Amsterdam",
+                        "Nederland"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "5453de49498eade8af355881",
+                        "name": "Business Service",
+                        "pluralName": "Business Services",
+                        "shortName": "Business Services",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/building/default_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "venuePage": {
+                    "id": "560995148"
+                },
+                "referralId": "v-1598698924",
+                "hasPerk": false
+            },
+            {
+                "id": "4dff23d36365598a2cbbb756",
+                "name": "Zonneplein",
+                "location": {
+                    "address": "Zonneplein (Tuindorp Oostzaan)",
+                    "crossStreet": "Siriusstraat",
+                    "lat": 52.4130422455155,
+                    "lng": 4.890859667053243,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 52.4130422455155,
+                            "lng": 4.890859667053243
+                        }
+                    ],
+                    "distance": 211,
+                    "postalCode": "1033",
+                    "cc": "NL",
+                    "city": "Amsterdam",
+                    "state": "Noord-Holland",
+                    "country": "Nederland",
+                    "formattedAddress": [
+                        "Zonneplein (Tuindorp Oostzaan) (Siriusstraat)",
+                        "1033 Amsterdam",
+                        "Nederland"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d164941735",
+                        "name": "Plaza",
+                        "pluralName": "Plazas",
+                        "shortName": "Plaza",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/parks_outdoors/plaza_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "referralId": "v-1598698924",
+                "hasPerk": false
+            },
+            {
+                "id": "4cda98c1b34e60fc00f34399",
+                "name": "Dierenkliniek De Zon",
+                "location": {
+                    "address": "Zonneplein 19-21",
+                    "lat": 52.413164377212524,
+                    "lng": 4.890578985214233,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 52.413164377212524,
+                            "lng": 4.890578985214233
+                        }
+                    ],
+                    "distance": 214,
+                    "postalCode": "1033 EJ",
+                    "cc": "NL",
+                    "city": "Amsterdam",
+                    "state": "Noord-Holland",
+                    "country": "Nederland",
+                    "formattedAddress": [
+                        "Zonneplein 19-21",
+                        "1033 EJ Amsterdam",
+                        "Nederland"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4d954af4a243a5684765b473",
+                        "name": "Veterinarian",
+                        "pluralName": "Veterinarians",
+                        "shortName": "Veterinarians",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/building/medical_veterinarian_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "referralId": "v-1598698924",
+                "hasPerk": false
+            },
+            {
+                "id": "4b30daa2f964a5202afc24e3",
+                "name": "Albert Heijn",
+                "location": {
+                    "address": "Molenwijk 25",
+                    "lat": 52.41712320918675,
+                    "lng": 4.893237760373374,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 52.41712320918675,
+                            "lng": 4.893237760373374
+                        }
+                    ],
+                    "distance": 289,
+                    "postalCode": "1035 EG",
+                    "cc": "NL",
+                    "city": "Amsterdam",
+                    "state": "Noord-Holland",
+                    "country": "Nederland",
+                    "formattedAddress": [
+                        "Molenwijk 25",
+                        "1035 EG Amsterdam",
+                        "Nederland"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "52f2ab2ebcbc57f1066b8b46",
+                        "name": "Supermarket",
+                        "pluralName": "Supermarkets",
+                        "shortName": "Supermarket",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/food_grocery_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "referralId": "v-1598698924",
+                "hasPerk": false
+            },
+            {
+                "id": "4a2703d2f964a52087851fe3",
+                "name": "Het Zonnehuis",
+                "location": {
+                    "address": "Zonneplein 30",
+                    "lat": 52.41337999052422,
+                    "lng": 4.891229287763756,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 52.41337999052422,
+                            "lng": 4.891229287763756
+                        }
+                    ],
+                    "distance": 166,
+                    "postalCode": "1033 EK",
+                    "cc": "NL",
+                    "city": "Amsterdam",
+                    "state": "Noord-Holland",
+                    "country": "Nederland",
+                    "formattedAddress": [
+                        "Zonneplein 30",
+                        "1033 EK Amsterdam",
+                        "Nederland"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d137941735",
+                        "name": "Theater",
+                        "pluralName": "Theaters",
+                        "shortName": "Theater",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/performingarts_theater_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "referralId": "v-1598698924",
+                "hasPerk": false
+            },
+            {
+                "id": "4e61fd031f6ef7d07a7f9b46",
+                "name": "Rijwielhandel 't Zonnewiel",
+                "location": {
+                    "lat": 52.413232,
+                    "lng": 4.89055,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 52.413232,
+                            "lng": 4.89055
+                        }
+                    ],
+                    "distance": 210,
+                    "cc": "NL",
+                    "country": "Nederland",
+                    "formattedAddress": [
+                        "Nederland"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d115951735",
+                        "name": "Bike Shop",
+                        "pluralName": "Bike Shops",
+                        "shortName": "Bike Shop",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/bikeshop_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "referralId": "v-1598698924",
+                "hasPerk": false
+            },
+            {
+                "id": "4db15daf6e81a2637ee975ba",
+                "name": "Kapper Dirk Tuindorp",
+                "location": {
+                    "address": "Kometensingel",
+                    "lat": 52.41504,
+                    "lng": 4.889938,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 52.41504,
+                            "lng": 4.889938
+                        }
+                    ],
+                    "distance": 202,
+                    "cc": "NL",
+                    "city": "Amsterdam",
+                    "state": "Noord-Holland",
+                    "country": "Nederland",
+                    "formattedAddress": [
+                        "Kometensingel",
+                        "Amsterdam",
+                        "Nederland"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d110951735",
+                        "name": "Salon / Barbershop",
+                        "pluralName": "Salons / Barbershops",
+                        "shortName": "Salon / Barbershop",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/salon_barber_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "referralId": "v-1598698924",
+                "hasPerk": false
+            },
+            {
+                "id": "4e81db298b817a489919078b",
+                "name": "Topslijter Molenwijk",
+                "location": {
+                    "lat": 52.41774068430694,
+                    "lng": 4.893976930090941,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 52.41774068430694,
+                            "lng": 4.893976930090941
+                        }
+                    ],
+                    "distance": 365,
+                    "cc": "NL",
+                    "country": "Nederland",
+                    "formattedAddress": [
+                        "Nederland"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d186941735",
+                        "name": "Liquor Store",
+                        "pluralName": "Liquor Stores",
+                        "shortName": "Liquor Store",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/food_liquor_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "referralId": "v-1598698924",
+                "hasPerk": false
+            },
+            {
+                "id": "4ac73662f964a520cbb620e3",
+                "name": "sv De Meteoor",
+                "location": {
+                    "address": "Perenpad",
+                    "lat": 52.41369711626645,
+                    "lng": 4.895637068803257,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 52.41369711626645,
+                            "lng": 4.895637068803257
+                        }
+                    ],
+                    "distance": 213,
+                    "postalCode": "1033",
+                    "cc": "NL",
+                    "city": "Amsterdam",
+                    "state": "Noord-Holland",
+                    "country": "Nederland",
+                    "formattedAddress": [
+                        "Perenpad",
+                        "1033 Amsterdam",
+                        "Nederland"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4cce455aebf7b749d5e191f5",
+                        "name": "Soccer Field",
+                        "pluralName": "Soccer Fields",
+                        "shortName": "Soccer Field",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/stadium_soccer_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "referralId": "v-1598698924",
+                "hasPerk": false
+            },
+            {
+                "id": "57e02f99498e73335175d848",
+                "name": "Bootcamp VitaminD Zonneplein",
+                "location": {
+                    "address": "Zonneplein",
+                    "lat": 52.413,
+                    "lng": 4.890733,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 52.413,
+                            "lng": 4.890733
+                        }
+                    ],
+                    "distance": 220,
+                    "cc": "NL",
+                    "city": "Amsterdam",
+                    "state": "Noord-Holland",
+                    "country": "Nederland",
+                    "formattedAddress": [
+                        "Zonneplein",
+                        "Amsterdam",
+                        "Nederland"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4f4528bc4b90abdf24c9de85",
+                        "name": "Athletics & Sports",
+                        "pluralName": "Athletics & Sports",
+                        "shortName": "Athletics & Sports",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/sports_outdoors_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "referralId": "v-1598698924",
+                "hasPerk": false
+            },
+            {
+                "id": "4cd0061286cbb71325c0f936",
+                "name": "Primera Molenwijk",
+                "location": {
+                    "address": "Molenwijk 34",
+                    "lat": 52.41713400595042,
+                    "lng": 4.893166981766893,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 52.41713400595042,
+                            "lng": 4.893166981766893
+                        }
+                    ],
+                    "distance": 290,
+                    "postalCode": "1035 EG",
+                    "cc": "NL",
+                    "city": "Amsterdam",
+                    "state": "Noord-Holland",
+                    "country": "Nederland",
+                    "formattedAddress": [
+                        "Molenwijk 34",
+                        "1035 EG Amsterdam",
+                        "Nederland"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d114951735",
+                        "name": "Bookstore",
+                        "pluralName": "Bookstores",
+                        "shortName": "Bookstore",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/bookstore_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "referralId": "v-1598698924",
+                "hasPerk": false
+            },
+            {
+                "id": "5eaea501e38d180007e36662",
+                "name": "White Label Coffee",
+                "location": {
+                    "lat": 52.412788,
+                    "lng": 4.890766,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 52.412788,
+                            "lng": 4.890766
+                        }
+                    ],
+                    "distance": 238,
+                    "postalCode": "1033 EK",
+                    "cc": "NL",
+                    "city": "Amsterdam",
+                    "state": "Noord-Holland",
+                    "country": "Nederland",
+                    "formattedAddress": [
+                        "1033 EK Amsterdam",
+                        "Nederland"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d1e0931735",
+                        "name": "Coffee Shop",
+                        "pluralName": "Coffee Shops",
+                        "shortName": "Coffee Shop",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "referralId": "v-1598698924",
+                "hasPerk": false
+            },
+            {
+                "id": "4fe328b6e4b083930c0ca602",
+                "name": "Slijterij brands",
+                "location": {
+                    "lat": 52.417688,
+                    "lng": 4.892723,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 52.417688,
+                            "lng": 4.892723
+                        }
+                    ],
+                    "distance": 351,
+                    "cc": "NL",
+                    "country": "Nederland",
+                    "formattedAddress": [
+                        "Nederland"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d186941735",
+                        "name": "Liquor Store",
+                        "pluralName": "Liquor Stores",
+                        "shortName": "Liquor Store",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/food_liquor_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "referralId": "v-1598698924",
+                "hasPerk": false
+            },
+            {
+                "id": "50114dadd86ccd4669e7ef93",
+                "name": "Museumwoning Tuindorp Oostzaan",
+                "location": {
+                    "address": "Meteorenweg 174",
+                    "lat": 52.413702370288625,
+                    "lng": 4.884152412414551,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 52.413702370288625,
+                            "lng": 4.884152412414551
+                        }
+                    ],
+                    "distance": 594,
+                    "cc": "NL",
+                    "city": "Amsterdam",
+                    "state": "Noord-Holland",
+                    "country": "Nederland",
+                    "formattedAddress": [
+                        "Meteorenweg 174",
+                        "Amsterdam",
+                        "Nederland"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d190941735",
+                        "name": "History Museum",
+                        "pluralName": "History Museums",
+                        "shortName": "History Museum",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/museum_history_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "referralId": "v-1598698924",
+                "hasPerk": false
+            },
+            {
+                "id": "4da9480743a1128196d97795",
+                "name": "Honkbalvereniging 'De Meteoor'",
+                "location": {
+                    "address": "Perenpad",
+                    "lat": 52.4122596604573,
+                    "lng": 4.894815326881158,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 52.4122596604573,
+                            "lng": 4.894815326881158
+                        }
+                    ],
+                    "distance": 287,
+                    "cc": "NL",
+                    "country": "Nederland",
+                    "formattedAddress": [
+                        "Perenpad",
+                        "Nederland"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d1e8941735",
+                        "name": "Baseball Field",
+                        "pluralName": "Baseball Fields",
+                        "shortName": "Baseball Field",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/parks_outdoors/baseballfield_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "referralId": "v-1598698924",
+                "hasPerk": false
+            },
+            {
+                "id": "4b705f5bf964a5201a162de3",
+                "name": "Oostzanerwerf",
+                "location": {
+                    "address": "oostzanerwerf",
+                    "lat": 52.41648909999999,
+                    "lng": 4.88547118,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 52.41648909999999,
+                            "lng": 4.88547118
+                        }
+                    ],
+                    "distance": 543,
+                    "postalCode": "1033",
+                    "cc": "NL",
+                    "city": "Amsterdam north",
+                    "state": "Noord-Holland",
+                    "country": "Nederland",
+                    "formattedAddress": [
+                        "oostzanerwerf",
+                        "1033 Amsterdam north",
+                        "Nederland"
+                    ]
+                },
+                "categories": [],
+                "referralId": "v-1598698924",
+                "hasPerk": false
+            },
+            {
+                "id": "57e01ac1498ecce8ce8c2c77",
+                "name": "Bootcamp VitaminD Zonneplein",
+                "location": {
+                    "lat": 52.412960429732934,
+                    "lng": 4.891111657347508,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 52.412960429732934,
+                            "lng": 4.891111657347508
+                        }
+                    ],
+                    "distance": 209,
+                    "postalCode": "1033 EJ",
+                    "cc": "NL",
+                    "city": "Amsterdam",
+                    "state": "Noord-Holland",
+                    "country": "Nederland",
+                    "formattedAddress": [
+                        "1033 EJ Amsterdam",
+                        "Nederland"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "52f2ab2ebcbc57f1066b8b48",
+                        "name": "Gymnastics Gym",
+                        "pluralName": "Gymnastics Gyms",
+                        "shortName": "Gymnastics Gym",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/building/gym_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "referralId": "v-1598698924",
+                "hasPerk": false
+            },
+            {
+                "id": "4c0bde4099459521499074dd",
+                "name": "Winkelcentrum Molenwijk",
+                "location": {
+                    "address": "Molenwijk",
+                    "lat": 52.41715375508467,
+                    "lng": 4.89319447845345,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 52.41715375508467,
+                            "lng": 4.89319447845345
+                        }
+                    ],
+                    "distance": 292,
+                    "cc": "NL",
+                    "city": "Amsterdam",
+                    "state": "Noord-Holland",
+                    "country": "Nederland",
+                    "formattedAddress": [
+                        "Molenwijk",
+                        "Amsterdam",
+                        "Nederland"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d1fd941735",
+                        "name": "Shopping Mall",
+                        "pluralName": "Shopping Malls",
+                        "shortName": "Mall",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/mall_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "referralId": "v-1598698924",
+                "hasPerk": false
+            },
+            {
+                "id": "5d94870b9a42c300080ceac1",
+                "name": "Volendammer Vishandel De Boer",
+                "location": {
+                    "lat": 52.417454,
+                    "lng": 4.893543,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 52.417454,
+                            "lng": 4.893543
+                        }
+                    ],
+                    "distance": 329,
+                    "postalCode": "1035 EH",
+                    "cc": "NL",
+                    "city": "Amsterdam",
+                    "state": "Noord-Holland",
+                    "country": "Nederland",
+                    "formattedAddress": [
+                        "1035 EH Amsterdam",
+                        "Nederland"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d10e951735",
+                        "name": "Fish Market",
+                        "pluralName": "Fish Markets",
+                        "shortName": "Fish Market",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/food_fishmarket_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "referralId": "v-1598698924",
+                "hasPerk": false
+            },
+            {
+                "id": "4c87c0c40dcb8cfa528e3d68",
+                "name": "Far East Culinair City",
+                "location": {
+                    "address": "Pomonastraat 22",
+                    "lat": 52.41056889195961,
+                    "lng": 4.896047586222182,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 52.41056889195961,
+                            "lng": 4.896047586222182
+                        }
+                    ],
+                    "distance": 493,
+                    "postalCode": "1033 TH",
+                    "cc": "NL",
+                    "city": "Amsterdam",
+                    "state": "Noord-Holland",
+                    "country": "Nederland",
+                    "formattedAddress": [
+                        "Pomonastraat 22",
+                        "1033 TH Amsterdam",
+                        "Nederland"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d145941735",
+                        "name": "Chinese Restaurant",
+                        "pluralName": "Chinese Restaurants",
+                        "shortName": "Chinese",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/asian_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "referralId": "v-1598698924",
+                "hasPerk": false
+            },
+            {
+                "id": "4de0a0bf52b1c1b3ce37e354",
+                "name": "Blokker",
+                "location": {
+                    "address": "Molenwijk 29",
+                    "crossStreet": "Molenaarsweg",
+                    "lat": 52.417237,
+                    "lng": 4.892851,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 52.417237,
+                            "lng": 4.892851
+                        }
+                    ],
+                    "distance": 301,
+                    "postalCode": "1035 EG",
+                    "cc": "NL",
+                    "city": "Amsterdam",
+                    "state": "Noord-Holland",
+                    "country": "Nederland",
+                    "formattedAddress": [
+                        "Molenwijk 29 (Molenaarsweg)",
+                        "1035 EG Amsterdam",
+                        "Nederland"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d1f8941735",
+                        "name": "Furniture / Home Store",
+                        "pluralName": "Furniture / Home Stores",
+                        "shortName": "Furniture / Home",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/furniture_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "referralId": "v-1598698924",
+                "hasPerk": false
+            },
+            {
+                "id": "50e18042e4b0b93eed7eef6e",
+                "name": "oliebollenkraam",
+                "location": {
+                    "address": "Molenwijk",
+                    "lat": 52.417332610653986,
+                    "lng": 4.894261957945462,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 52.417332610653986,
+                            "lng": 4.894261957945462
+                        }
+                    ],
+                    "distance": 327,
+                    "cc": "NL",
+                    "country": "Nederland",
+                    "formattedAddress": [
+                        "Molenwijk",
+                        "Nederland"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "56aa371be4b08b9a8d57350b",
+                        "name": "Food Stand",
+                        "pluralName": "Food Stands",
+                        "shortName": "Food Stand",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/travel/movingtarget_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "referralId": "v-1598698924",
+                "hasPerk": false
+            },
+            {
+                "id": "4c7e7ab7b33a224b8908db81",
+                "name": "Lijn 35",
+                "location": {
+                    "lat": 52.412339359828046,
+                    "lng": 4.886831907576544,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 52.412339359828046,
+                            "lng": 4.886831907576544
+                        }
+                    ],
+                    "distance": 473,
+                    "cc": "NL",
+                    "country": "Nederland",
+                    "formattedAddress": [
+                        "Nederland"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d12b951735",
+                        "name": "Bus Line",
+                        "pluralName": "Bus Lines",
+                        "shortName": "Bus",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/travel/busstation_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "referralId": "v-1598698924",
+                "hasPerk": false
+            },
+            {
+                "id": "4ee9c24f0e61f09a65ea1535",
+                "name": "Bus 35 Molenwijk - Centraal Station",
+                "location": {
+                    "lat": 52.419511185325526,
+                    "lng": 4.883921807983231,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 52.419511185325526,
+                            "lng": 4.883921807983231
+                        }
+                    ],
+                    "distance": 818,
+                    "cc": "NL",
+                    "city": "Amsterdam",
+                    "state": "Noord-Holland",
+                    "country": "Nederland",
+                    "formattedAddress": [
+                        "Amsterdam",
+                        "Nederland"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d12b951735",
+                        "name": "Bus Line",
+                        "pluralName": "Bus Lines",
+                        "shortName": "Bus",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/travel/busstation_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "referralId": "v-1598698924",
+                "hasPerk": false
+            },
+            {
+                "id": "4dfb6196d164f73de7ccd08f",
+                "name": "Da Molenwijk",
+                "location": {
+                    "lat": 52.417515,
+                    "lng": 4.892877,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 52.417515,
+                            "lng": 4.892877
+                        }
+                    ],
+                    "distance": 331,
+                    "cc": "NL",
+                    "city": "Amsterdam",
+                    "state": "Noord-Holland",
+                    "country": "Nederland",
+                    "formattedAddress": [
+                        "Oostzanerwerf",
+                        "Nederland"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d10f951735",
+                        "name": "Pharmacy",
+                        "pluralName": "Pharmacies",
+                        "shortName": "Pharmacy",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/pharmacy_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "referralId": "v-1598698924",
+                "hasPerk": false
+            },
+            {
+                "id": "4d7fa3f0564b8cfaf47e0965",
+                "name": "Speeltuin Tuindorp Oostzaan",
+                "location": {
+                    "address": "Plejadenplein 32a",
+                    "lat": 52.41379860902166,
+                    "lng": 4.885883193400466,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 52.41379860902166,
+                            "lng": 4.885883193400466
+                        }
+                    ],
+                    "distance": 476,
+                    "cc": "NL",
+                    "city": "Tuindorp Oostzaan",
+                    "state": "Noord-Holland",
+                    "country": "Nederland",
+                    "formattedAddress": [
+                        "Plejadenplein 32a",
+                        "Tuindorp Oostzaan",
+                        "Nederland"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d1e7941735",
+                        "name": "Playground",
+                        "pluralName": "Playgrounds",
+                        "shortName": "Playground",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/parks_outdoors/playground_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "referralId": "v-1598698924",
+                "hasPerk": false
+            },
+            {
+                "id": "4ce475c1b0e92d43943621ca",
+                "name": "Avia Bodo",
+                "location": {
+                    "address": "Appelweg 46",
+                    "lat": 52.41499364376068,
+                    "lng": 4.8974186182022095,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 52.41499364376068,
+                            "lng": 4.8974186182022095
+                        }
+                    ],
+                    "distance": 317,
+                    "postalCode": "1033 AV",
+                    "cc": "NL",
+                    "city": "Amsterdam",
+                    "state": "Noord-Holland",
+                    "country": "Nederland",
+                    "formattedAddress": [
+                        "Appelweg 46",
+                        "1033 AV Amsterdam",
+                        "Nederland"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4bf58dd8d48988d113951735",
+                        "name": "Gas Station",
+                        "pluralName": "Gas Stations",
+                        "shortName": "Gas Station",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/gas_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "referralId": "v-1598698924",
+                "hasPerk": false
+            },
+            {
+                "id": "4a27001df964a5203e821fe3",
+                "name": "Eetcafé Menora",
+                "location": {
+                    "address": "Nieuwe Maanstraat 1-3-5",
+                    "lat": 52.41244965291107,
+                    "lng": 4.886808630517731,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 52.41244965291107,
+                            "lng": 4.886808630517731
+                        }
+                    ],
+                    "distance": 468,
+                    "postalCode": "1033 JK",
+                    "cc": "NL",
+                    "city": "Amsterdam",
+                    "state": "Noord-Holland",
+                    "country": "Nederland",
+                    "formattedAddress": [
+                        "Nieuwe Maanstraat 1-3-5",
+                        "1033 JK Amsterdam",
+                        "Nederland"
+                    ]
+                },
+                "categories": [],
+                "referralId": "v-1598698924",
+                "hasPerk": false
+            },
+            {
+                "id": "58fdf67f50a6f0590697073d",
+                "name": "Wasserette Stomerij Groen",
+                "location": {
+                    "address": "Pomonastraat 18 B",
+                    "lat": 52.41011,
+                    "lng": 4.8958199,
+                    "labeledLatLngs": [
+                        {
+                            "label": "display",
+                            "lat": 52.41011,
+                            "lng": 4.8958199
+                        }
+                    ],
+                    "distance": 533,
+                    "postalCode": "1033 TH",
+                    "cc": "NL",
+                    "city": "Amsterdam",
+                    "state": "Noord-Holland",
+                    "country": "Nederland",
+                    "formattedAddress": [
+                        "Pomonastraat 18 B",
+                        "1033 TH Amsterdam",
+                        "Nederland"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "52f2ab2ebcbc57f1066b8b1d",
+                        "name": "Dry Cleaner",
+                        "pluralName": "Dry Cleaners",
+                        "shortName": "Dry Cleaner",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/drycleaner_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "referralId": "v-1598698924",
+                "hasPerk": false
+            }
+        ],
+        "confident": false
+    }
+}

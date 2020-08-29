@@ -1,0 +1,116 @@
+{
+    "meta": {
+        "code": 200,
+        "requestId": "5f4a3a3bedbb5d07115d2428"
+    },
+    "response": {
+        "venue": {
+            "id": "4d54daecba5b224b50ff0714",
+            "name": "RK Basisschool De Satelliet",
+            "contact": {
+                "phone": "+31204930431",
+                "formattedPhone": "+31 20 493 0431"
+            },
+            "location": {
+                "address": "Kometensingel 52-54",
+                "lat": 52.41482876448346,
+                "lng": 4.893361069731647,
+                "labeledLatLngs": [
+                    {
+                        "label": "display",
+                        "lat": 52.41482876448346,
+                        "lng": 4.893361069731647
+                    }
+                ],
+                "postalCode": "1033BW",
+                "cc": "NL",
+                "city": "Amsterdam",
+                "state": "Noord-Holland",
+                "country": "Nederland",
+                "formattedAddress": [
+                    "Kometensingel 52-54",
+                    "1033BW Amsterdam",
+                    "Nederland"
+                ]
+            },
+            "canonicalUrl": "https://foursquare.com/v/rk-basisschool-de-satelliet/4d54daecba5b224b50ff0714",
+            "categories": [
+                {
+                    "id": "4bf58dd8d48988d13b941735",
+                    "name": "School",
+                    "pluralName": "Schools",
+                    "shortName": "School",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/building/school_",
+                        "suffix": ".png"
+                    },
+                    "primary": true
+                }
+            ],
+            "verified": false,
+            "stats": {
+                "tipCount": 0
+            },
+            "likes": {
+                "count": 0,
+                "groups": []
+            },
+            "dislike": false,
+            "ok": false,
+            "venueRatingBlacklisted": true,
+            "beenHere": {
+                "count": 0,
+                "unconfirmedCount": 0,
+                "marked": false,
+                "lastCheckinExpiredAt": 0
+            },
+            "specials": {
+                "count": 0,
+                "items": []
+            },
+            "photos": {
+                "count": 0,
+                "groups": []
+            },
+            "reasons": {
+                "count": 0,
+                "items": []
+            },
+            "hereNow": {
+                "count": 0,
+                "summary": "Nobody here",
+                "groups": []
+            },
+            "createdAt": 1297406700,
+            "tips": {
+                "count": 0,
+                "groups": []
+            },
+            "shortUrl": "http://4sq.com/e2JiqA",
+            "timeZone": "Europe/Amsterdam",
+            "listed": {
+                "count": 0,
+                "groups": [
+                    {
+                        "type": "others",
+                        "name": "Lists from other people",
+                        "count": 0,
+                        "items": []
+                    }
+                ]
+            },
+            "seasonalHours": [],
+            "pageUpdates": {
+                "count": 0,
+                "items": []
+            },
+            "inbox": {
+                "count": 0,
+                "items": []
+            },
+            "attributes": {
+                "groups": []
+            }
+        }
+    }
+}
