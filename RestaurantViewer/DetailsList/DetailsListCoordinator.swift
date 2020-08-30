@@ -19,7 +19,7 @@ class DetailsListCoordinator {
     
     var parent: Coordinator?
     
-    init(navigationController: UINavigationController, restaurantID: String, apiManager: APIManager = LocalAPIManager()) {
+    init(navigationController: UINavigationController, restaurantID: String, apiManager: APIManager = FoursquareAPIManager.shared) {
         self.apiManager = apiManager
         self.navigationController = navigationController
         self.restaurantID = restaurantID

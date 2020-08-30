@@ -78,7 +78,7 @@ extension MapViewController {
                 guard let mapRegion = mapRegion else {
                     return
                 }
-                self.mapView.setRegion(mapRegion, animated: false)
+                self.mapView.setRegion(mapRegion, animated: true)
             })
             .disposed(by: disposeBag)
         viewModel.titleRelay.observeOn(MainScheduler.instance)
@@ -95,6 +95,10 @@ extension MapViewController {
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         viewModel.handleUserLocations(locations)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Location manager failed with error: \(error)")
     }
 }
 

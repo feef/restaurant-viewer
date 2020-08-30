@@ -16,7 +16,7 @@ class DummyCLLocationManager: CLLocationManager {
     }
     
     var onRequestAuthorization: (() -> Void)?
-    var onStartUpdatingLocation: (() -> Void)?
+    var onStartMonitoringSignificantLocationChanges: (() -> Void)?
     
     override init() {
         super.init()
@@ -26,7 +26,7 @@ class DummyCLLocationManager: CLLocationManager {
         onRequestAuthorization?()
     }
     
-    override func startUpdatingLocation() {
-        onStartUpdatingLocation?()
+    override func startMonitoringSignificantLocationChanges() {
+        onStartMonitoringSignificantLocationChanges?()
     }
 }

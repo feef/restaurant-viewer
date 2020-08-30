@@ -20,7 +20,7 @@ class MapViewModel {
     let alertRelay = BehaviorRelay<AlertConfiguration?>(value: nil)
     let annotationsRelay = PublishRelay<[RestaurantAnnotation]>()
     let regionRelay = BehaviorRelay<MKCoordinateRegion?>(value: nil)
-    let titleRelay = BehaviorRelay<String>(value: Constants.loadingText)
+    let titleRelay = BehaviorRelay<String?>(value: nil)
     
     private let fetchRegionRelay = BehaviorRelay<MKCoordinateRegion?>(value: nil)
     
@@ -51,14 +51,17 @@ class MapViewModel {
         self.apiManager = apiManager
         self.locationManager = locationManager
         fetchRegionRelay.distinctUntilChanged()
-            .debounce(.milliseconds(600), scheduler: MainScheduler.instance)
+            .debounce(Constants.regionChangeDebounceTime, scheduler: MainScheduler.instance)
             .subscribe(
-                onNext: { [weak self] mapRect in
-                    guard let mapRect = mapRect else {
+                onNext: { [weak self] mapRegion in
+                    guard
+                        self?.regionRelay.value != mapRegion,
+                        let mapRegion = mapRegion
+                    else {
                         return
                     }
-                    let center = mapRect.center
-                    let radius = CLLocation(latitude: center.latitude, longitude: center.longitude).distance(from: CLLocation(latitude: center.latitude, longitude: center.longitude - mapRect.span.longitudeDelta / 2))
+                    let center = mapRegion.center
+                    let radius = CLLocation(latitude: center.latitude, longitude: center.longitude).distance(from: CLLocation(latitude: center.latitude, longitude: center.longitude - mapRegion.span.longitudeDelta / 2))
                     self?.fetchRestaurants(withCenterCoordinate: center, radius: radius, updateMapRegionOnSuccess: false)
                 }
             )
@@ -70,9 +73,9 @@ class MapViewModel {
 
 extension MapViewModel {
     func handleViewDidLoad() {
+        locationManager.startUpdatingLocation()
         switch locationManager.authorizationStatus {
-            case .allowed:
-                locationManager.startUpdatingLocation()
+            case .allowed:()
             case .unknown:
                 locationManager.requestAuthorization()
             case .denied:
@@ -96,22 +99,14 @@ extension MapViewModel {
     }
     
     func handleAnnotationViewSelection(_ annotationView: MKAnnotationView, inMap map: MKMapView) {
-        defer {
-            map.deselectAnnotation(annotationView.annotation, animated: true)
-        }
         guard let restaurantId = (annotationView.annotation as? RestaurantAnnotation)?.restaurantID else {
             return
         }
+        map.deselectAnnotation(annotationView.annotation, animated: true)
         delegate?.showDetailsForRestaurant(withId: restaurantId)
     }
     
     func handleMapRegionChange(_ region: MKCoordinateRegion) {
-        guard
-            region != fetchRegionRelay.value,
-            region != regionRelay.value
-        else {
-            return
-        }
         fetchRegionRelay.accept(region)
     }
     
@@ -155,6 +150,7 @@ extension MapViewModel {
 extension MapViewModel {
     private struct Constants {
         static let defaultFetchRadius: Double = 250
+        static let regionChangeDebounceTime = DispatchTimeInterval.milliseconds(300)
         static let failedToLoadText = "Failed to load"
         static let loadingText = "Loading..."
         static let populatedTextFormat = "Loaded (%@, %@)"

@@ -98,8 +98,6 @@ class MapViewModelTests: XCTestCase {
             })
             .disposed(by: disposeBag)
         let loadingTitleExpectation = XCTestExpectation(description: "The view model updates the title to loading before fetching restaurant locations in handleUserLocations")
-        // Value should start as loading as well, so should be fulfilled twice
-        loadingTitleExpectation.expectedFulfillmentCount = 2
         let loadedTitleExpectation = XCTestExpectation(description: "The view model updates the title to loaded after fetching restaurant locations in handleUserLocations")
         mapViewModel.titleRelay.subscribe(onNext: { title in
                 if title == "Loading..." {
@@ -163,8 +161,6 @@ class MapViewModelTests: XCTestCase {
             })
             .disposed(by: disposeBag)
         let loadingTitleExpectation = XCTestExpectation(description: "The view model updates the title to loading before fetching restaurant locations in user location handling when location manager state is allowed")
-        // Value should start as loading as well, so should be fulfilled twice
-        loadingTitleExpectation.expectedFulfillmentCount = 2
         let loadedTitleExpectation = XCTestExpectation(description: "The view model updates the title to loaded after fetching restaurant locations in user location handling when location manager state is allowed")
         mapViewModel.titleRelay.subscribe(onNext: { title in
                 if title == "Loading..." {
@@ -176,7 +172,7 @@ class MapViewModelTests: XCTestCase {
             })
             .disposed(by: disposeBag)
         mapViewModel.handleMapRegionChange(mapRegion)
-        wait(for: [fetchRestaurantsExpectation, loadingTitleExpectation, loadedTitleExpectation], timeout: 1)
+        wait(for: [fetchRestaurantsExpectation, loadingTitleExpectation, loadedTitleExpectation], timeout: 2)
     }
     
     func testHandleMapRegionChangeFailure() {
@@ -206,7 +202,7 @@ class MapViewModelTests: XCTestCase {
             })
             .disposed(by: disposeBag)
         mapViewModel.handleMapRegionChange(mapRegion)
-        wait(for: [fetchRestaurantsExpectation, failedTitleExpectation], timeout: 1)
+        wait(for: [fetchRestaurantsExpectation, failedTitleExpectation], timeout: 2)
     }
         
     // MARK: - handleViewDidDisappear

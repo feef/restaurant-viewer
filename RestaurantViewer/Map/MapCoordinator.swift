@@ -19,7 +19,7 @@ class MapCoordinator: Coordinator {
     
     var parent: Coordinator?
     
-    init(navigationController: UINavigationController, apiManager: APIManager = LocalAPIManager(), locationManager: LocationManager = UserLocationManager()) {
+    init(navigationController: UINavigationController, apiManager: APIManager = FoursquareAPIManager.shared, locationManager: LocationManager = UserLocationManager()) {
         self.navigationController = navigationController
         self.apiManager = apiManager
         self.locationManager = locationManager

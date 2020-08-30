@@ -40,7 +40,7 @@ class DetailsListViewModelTests: XCTestCase {
                     return
                 }
                 cellsExpectation.fulfill()
-                XCTAssertEqual(texts, ["Address: Kometensingel 52-54"])
+                XCTAssertEqual(texts, ["Address: Kometensingel 52-54", "Description: Unknown", "Hours: Unknown", "Menu: Unknown", "Rating: Unknown", "Webpage: Unknown"])
             })
             .disposed(by: disposeBag)
         let loadingTitleExpectation = XCTestExpectation(description: "TitleRelay is updated to loading before fetch of restaurant details in handleViewDidLoad")

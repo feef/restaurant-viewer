@@ -38,7 +38,7 @@ class UserLocationManager: LocationManager {
     }
     
     func startUpdatingLocation() {
-        locationManager.startUpdatingLocation()
+        locationManager.startMonitoringSignificantLocationChanges()
     }
     
     func requestAuthorization() {

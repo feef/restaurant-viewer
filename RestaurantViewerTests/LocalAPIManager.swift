@@ -8,6 +8,7 @@
 
 import RxSwift
 import CoreLocation
+@testable import RestaurantViewer
 
 class LocalAPIManager: APIManager {
     var onFetchRestaurants: ((CLLocationCoordinate2D, Double) -> Void)?

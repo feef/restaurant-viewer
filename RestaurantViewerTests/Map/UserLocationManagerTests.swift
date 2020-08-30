@@ -34,8 +34,8 @@ class UserLocationManagerTests: XCTestCase {
         userLocationManager.requestAuthorization()
         wait(for: [authorizationExpectation], timeout: 1)
         
-        let trackingExpectation = XCTestExpectation(description: "UserLocationManager will call 'startUpdatingLocation' on CLLocationManager when 'startUpdatingLocation' is called on it")
-        dummyCLLocationManager.onStartUpdatingLocation = {
+        let trackingExpectation = XCTestExpectation(description: "UserLocationManager will call 'startMonitoringSignificantLocationChanges' on CLLocationManager when 'startUpdatingLocation' is called on it")
+        dummyCLLocationManager.onStartMonitoringSignificantLocationChanges = {
             trackingExpectation.fulfill()
         }
         userLocationManager.startUpdatingLocation()

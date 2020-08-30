@@ -59,11 +59,14 @@ extension DetailsListViewModel {
                     ]
                     
                     let displayTexts: [String] = details.compactMap {
-                        guard let value = $0.value else {
-                            return nil
+                        var value = "Unknown"
+                        if let foundValue = $0.value {
+                            value = "\(foundValue)"
                         }
                         return "\($0.key): \(value)"
                     }
+                    .sorted(by: { $0 < $1 })
+                    
                     self?.cellsRelay.accept(displayTexts)
                     self?.titleRelay.accept(restaurantDetails.name)
                 },
