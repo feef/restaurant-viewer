@@ -18,4 +18,15 @@ class RestaurantAnnotation: NSObject, MKAnnotation {
         restaurantID = restaurantLocation.id
         title = restaurantLocation.name
     }
+    
+    override func isEqual(_ object: Any?) -> Bool {
+        guard let annotation = object as? RestaurantAnnotation else {
+            return false
+        }
+        return
+            coordinate.latitude == annotation.coordinate.latitude &&
+            coordinate.longitude == annotation.coordinate.longitude &&
+            restaurantID == annotation.restaurantID &&
+            title == annotation.title
+    }
 }

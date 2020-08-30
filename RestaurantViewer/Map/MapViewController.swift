@@ -75,7 +75,10 @@ extension MapViewController {
             .disposed(by: disposeBag)
         viewModel.regionRelay.observeOn(MainScheduler.instance)
             .subscribe(onNext: { [unowned self] mapRegion in
-                self.mapView.setRegion(mapRegion, animated: true)
+                guard let mapRegion = mapRegion else {
+                    return
+                }
+                self.mapView.setRegion(mapRegion, animated: false)
             })
             .disposed(by: disposeBag)
         viewModel.titleRelay.observeOn(MainScheduler.instance)
@@ -104,5 +107,9 @@ extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         viewModel.handleAnnotationViewSelection(view, inMap: mapView)
+    }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        viewModel.handleMapRegionChange(mapView.region)
     }
 }

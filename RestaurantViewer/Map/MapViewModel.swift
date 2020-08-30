@@ -19,8 +19,10 @@ protocol MapViewModelDelegate: class {
 class MapViewModel {
     let alertRelay = BehaviorRelay<AlertConfiguration?>(value: nil)
     let annotationsRelay = PublishRelay<[RestaurantAnnotation]>()
-    let regionRelay = PublishRelay<MKCoordinateRegion>()
+    let regionRelay = BehaviorRelay<MKCoordinateRegion?>(value: nil)
     let titleRelay = BehaviorRelay<String>(value: Constants.loadingText)
+    
+    private let fetchRegionRelay = BehaviorRelay<MKCoordinateRegion?>(value: nil)
     
     private let apiManager: APIManager
     private let disposeBag = DisposeBag()
@@ -48,6 +50,19 @@ class MapViewModel {
         self.delegate = delegate
         self.apiManager = apiManager
         self.locationManager = locationManager
+        fetchRegionRelay.distinctUntilChanged()
+            .debounce(.milliseconds(600), scheduler: MainScheduler.instance)
+            .subscribe(
+                onNext: { [weak self] mapRect in
+                    guard let mapRect = mapRect else {
+                        return
+                    }
+                    let center = mapRect.center
+                    let radius = CLLocation(latitude: center.latitude, longitude: center.longitude).distance(from: CLLocation(latitude: center.latitude, longitude: center.longitude - mapRect.span.longitudeDelta / 2))
+                    self?.fetchRestaurants(withCenterCoordinate: center, radius: radius, updateMapRegionOnSuccess: false)
+                }
+            )
+            .disposed(by: disposeBag)
     }
 }
 
@@ -90,6 +105,16 @@ extension MapViewModel {
         delegate?.showDetailsForRestaurant(withId: restaurantId)
     }
     
+    func handleMapRegionChange(_ region: MKCoordinateRegion) {
+        guard
+            region != fetchRegionRelay.value,
+            region != regionRelay.value
+        else {
+            return
+        }
+        fetchRegionRelay.accept(region)
+    }
+    
     func viewForAnnotation(_ annotation: MKAnnotation, inMap map: MKMapView) -> MKAnnotationView? {
         guard let restaurantAnnotation = annotation as? RestaurantAnnotation else {
             return nil
@@ -101,7 +126,7 @@ extension MapViewModel {
 // MARK: - Private
 
 extension MapViewModel {
-    private func fetchRestaurants(withCenterCoordinate centerCoordinate: CLLocationCoordinate2D, radius: Double = Constants.defaultFetchRadius) {
+    private func fetchRestaurants(withCenterCoordinate centerCoordinate: CLLocationCoordinate2D, radius: Double = Constants.defaultFetchRadius, updateMapRegionOnSuccess: Bool = true) {
         titleRelay.accept(Constants.loadingText)
         apiManager.fetchRestaurants(aroundCoordinate: centerCoordinate, withRadius: radius)
             .observeOn(MainScheduler.instance)
@@ -109,7 +134,9 @@ extension MapViewModel {
                 onNext: { [weak self] restaurantLocations in
                     let annotations = restaurantLocations.compactMap { RestaurantAnnotation(restaurantLocation: $0) }
                     self?.annotationsRelay.accept(annotations)
-                    self?.regionRelay.accept(MKCoordinateRegion(center: centerCoordinate, latitudinalMeters: radius * 2, longitudinalMeters: radius * 2))
+                    if updateMapRegionOnSuccess {
+                        self?.regionRelay.accept(MKCoordinateRegion(center: centerCoordinate, latitudinalMeters: radius * 2, longitudinalMeters: radius * 2))
+                    }
                     let latitudeString = self?.numberFormatter.string(from: centerCoordinate.latitude as NSNumber) ?? ""
                     let longitudeString = self?.numberFormatter.string(from: centerCoordinate.longitude as NSNumber) ?? ""
                     let populatedText = String(format: Constants.populatedTextFormat, latitudeString, longitudeString)

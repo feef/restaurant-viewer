@@ -87,23 +87,28 @@ class MapViewModelTests: XCTestCase {
             XCTAssertEqual(radius, 250)
             fetchRestaurantsExpectation.fulfill()
         }
-        let regionUpdatedExpectation = XCTestExpectation(description: "The view model updates the map region after fetching restaurant locations in user location handling when location manager state is allowed")
-        mapViewModel.regionRelay.subscribe(onNext: { _ in
-            regionUpdatedExpectation.fulfill()
-        })
+        let regionUpdatedExpectation = XCTestExpectation(description: "The view model updates the map region after fetching restaurant locations in user handleUserLocations")
+        regionUpdatedExpectation.expectedFulfillmentCount = 1
+        regionUpdatedExpectation.assertForOverFulfill = true
+        mapViewModel.regionRelay.subscribe(onNext: { region in
+                guard region != nil else {
+                    return
+                }
+                regionUpdatedExpectation.fulfill()
+            })
             .disposed(by: disposeBag)
-        let loadingTitleExpectation = XCTestExpectation(description: "The view model updates the title to loading before fetching restaurant locations in user location handling when location manager state is allowed")
+        let loadingTitleExpectation = XCTestExpectation(description: "The view model updates the title to loading before fetching restaurant locations in handleUserLocations")
         // Value should start as loading as well, so should be fulfilled twice
         loadingTitleExpectation.expectedFulfillmentCount = 2
-        let loadedTitleExpectation = XCTestExpectation(description: "The view model updates the title to loaded after fetching restaurant locations in user location handling when location manager state is allowed")
+        let loadedTitleExpectation = XCTestExpectation(description: "The view model updates the title to loaded after fetching restaurant locations in handleUserLocations")
         mapViewModel.titleRelay.subscribe(onNext: { title in
-            if title == "Loading..." {
-                loadingTitleExpectation.fulfill()
-            }
-            else if title == "Loaded (\(userLocation.coordinate.latitude), \(userLocation.coordinate.longitude))" {
-                loadedTitleExpectation.fulfill()
-            }
-        })
+                if title == "Loading..." {
+                    loadingTitleExpectation.fulfill()
+                }
+                else if title == "Loaded (\(userLocation.coordinate.latitude), \(userLocation.coordinate.longitude))" {
+                    loadedTitleExpectation.fulfill()
+                }
+            })
             .disposed(by: disposeBag)
         mapViewModel.handleUserLocations([CLLocation(latitude: 200, longitude: 210), userLocation])
         wait(for: [fetchRestaurantsExpectation, regionUpdatedExpectation, loadingTitleExpectation, loadedTitleExpectation], timeout: 1)
@@ -117,11 +122,14 @@ class MapViewModelTests: XCTestCase {
             fetchRestaurantsExpectation.fulfill()
         }
         mapViewModel.regionRelay.subscribe(
-            onNext: { _ in
-                XCTFail("Unexpected update of regionRelay from user location handling")
+            onNext: { region in
+                guard region != nil else {
+                    return
+                }
+                XCTFail("Unexpected update of regionRelay from handleUserLocations")
             })
             .disposed(by: disposeBag)
-        let failedTitleExpectation = XCTestExpectation(description: "The view model updates the title to loaded after fetching restaurant locations in user location handling when location manager state is allowed")
+        let failedTitleExpectation = XCTestExpectation(description: "The view model updates the title to failed after failing to fetch restaurant locations in handleUserLocations")
         mapViewModel.titleRelay.subscribe(
             onNext: { title in
                 if title == "Failed to load" {
@@ -133,6 +141,74 @@ class MapViewModelTests: XCTestCase {
         wait(for: [fetchRestaurantsExpectation, failedTitleExpectation], timeout: 1)
     }
     
+    // MARK: - handleMapRegionChange
+    
+    func testHandleMapRegionChangeSuccess() {
+        let center = CLLocationCoordinate2D(latitude: 1.5, longitude: 0.1)
+        let meterSpan: CLLocationDistance = 100
+        let mapRegion = MKCoordinateRegion(center: center, latitudinalMeters: meterSpan, longitudinalMeters: meterSpan)
+        
+        let fetchRestaurantsExpectation = XCTestExpectation(description: "The view model fetches restaurants based on the current map when 'handleMapRegionChange' is called")
+        apiManager.onFetchRestaurants = { coordinate, radius in
+            XCTAssertEqual(coordinate.latitude, center.latitude)
+            XCTAssertEqual(coordinate.longitude, center.longitude)
+            XCTAssertEqual(radius.rounded(.towardZero), meterSpan/2)
+            fetchRestaurantsExpectation.fulfill()
+        }
+        mapViewModel.regionRelay.subscribe(onNext: { region in
+                guard region != nil else {
+                    return
+                }
+                XCTFail("Unexpected update of regionRelay from call to handleMapRegionChange")
+            })
+            .disposed(by: disposeBag)
+        let loadingTitleExpectation = XCTestExpectation(description: "The view model updates the title to loading before fetching restaurant locations in user location handling when location manager state is allowed")
+        // Value should start as loading as well, so should be fulfilled twice
+        loadingTitleExpectation.expectedFulfillmentCount = 2
+        let loadedTitleExpectation = XCTestExpectation(description: "The view model updates the title to loaded after fetching restaurant locations in user location handling when location manager state is allowed")
+        mapViewModel.titleRelay.subscribe(onNext: { title in
+                if title == "Loading..." {
+                    loadingTitleExpectation.fulfill()
+                }
+                else if title == "Loaded (\(center.latitude), \(center.longitude))" {
+                    loadedTitleExpectation.fulfill()
+                }
+            })
+            .disposed(by: disposeBag)
+        mapViewModel.handleMapRegionChange(mapRegion)
+        wait(for: [fetchRestaurantsExpectation, loadingTitleExpectation, loadedTitleExpectation], timeout: 1)
+    }
+    
+    func testHandleMapRegionChangeFailure() {
+        apiManager.failResponse = true
+        let center = CLLocationCoordinate2D(latitude: 1.5, longitude: 0.1)
+        let meterSpan: CLLocationDistance = 100
+        let mapRegion = MKCoordinateRegion(center: center, latitudinalMeters: meterSpan, longitudinalMeters: meterSpan)
+
+        let fetchRestaurantsExpectation = XCTestExpectation(description: "The view model fetches restaurants based on the current map when 'handleMapRegionChange' is called")
+        apiManager.onFetchRestaurants = { coordinate, radius in
+            fetchRestaurantsExpectation.fulfill()
+        }
+        mapViewModel.regionRelay.subscribe(
+            onNext: { region in
+                guard region != nil else {
+                    return
+                }
+                XCTFail("Unexpected update of regionRelay from call to handleMapRegionChange")
+            })
+            .disposed(by: disposeBag)
+        let failedTitleExpectation = XCTestExpectation(description: "The view model updates the title to failed after failing to fetch restaurant locations in handleMapRegionChange")
+        mapViewModel.titleRelay.subscribe(
+            onNext: { title in
+                if title == "Failed to load" {
+                    failedTitleExpectation.fulfill()
+                }
+            })
+            .disposed(by: disposeBag)
+        mapViewModel.handleMapRegionChange(mapRegion)
+        wait(for: [fetchRestaurantsExpectation, failedTitleExpectation], timeout: 1)
+    }
+        
     // MARK: - handleViewDidDisappear
     
     func testCompleteIfUnusedCalled() {
