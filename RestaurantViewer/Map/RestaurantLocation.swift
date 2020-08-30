@@ -14,12 +14,24 @@ struct RestaurantLocation: Codable {
     let lng: Double
     let name: String
     
+    init() {
+        fatalError()
+    }
+    
+    init(id: String, lat: Double, lng: Double, name: String) {
+        self.id = id
+        self.lat = lat
+        self.lng = lng
+        self.name = name
+    }
+    
     init(from decoder: Decoder) throws {
         let rawResponse = try RawResponse(from: decoder)
-        id = rawResponse.id
-        lat = rawResponse.location.lat
-        lng = rawResponse.location.lng
-        name = rawResponse.name
+        self.init(id: rawResponse.id, lat: rawResponse.location.lat, lng: rawResponse.location.lng, name: rawResponse.name)
+//        id = rawResponse.id
+//        lat = rawResponse.location.lat
+//        lng = rawResponse.location.lng
+//        name = rawResponse.name
     }
 }
 

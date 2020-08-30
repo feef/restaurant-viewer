@@ -34,31 +34,16 @@ class MapViewController: UIViewController {
 extension MapViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.frame = view.bounds
         view.addSubview(mapView)
+        mapView.showsUserLocation = true
         mapView.delegate = self
         mapView.register(RestaurantAnnotationView.self, forAnnotationViewWithReuseIdentifier: RestaurantAnnotationView.reuseIdentifier)
-        viewModel.regionRelay.observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [unowned self] mapRegion in
-                self.mapView.setRegion(mapRegion, animated: true)
-            })
-            .disposed(by: disposeBag)
-        viewModel.annotationsRelay.distinctUntilChanged()
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [unowned self] annotations in
-                let existingAnnotations = Set(self.mapView.annotations.compactMap({ $0 as? RestaurantAnnotation }))
-                let updatedAnnotations = Set(annotations)
-                let removedAnnotations = existingAnnotations.subtracting(updatedAnnotations)
-                self.mapView.removeAnnotations(Array(removedAnnotations))
-                let addedAnnotations = updatedAnnotations.subtracting(existingAnnotations)
-                self.mapView.addAnnotations(Array(addedAnnotations))
-            })
-            .disposed(by: disposeBag)
         viewModel.alertRelay.distinctUntilChanged()
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [unowned self] alertConfiguration in
@@ -75,6 +60,27 @@ extension MapViewController {
                     return
                 }
                 showAlert()
+            })
+            .disposed(by: disposeBag)
+        viewModel.annotationsRelay.distinctUntilChanged()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [unowned self] annotations in
+                let existingAnnotations = Set(self.mapView.annotations.compactMap({ $0 as? RestaurantAnnotation }))
+                let updatedAnnotations = Set(annotations)
+                let removedAnnotations = existingAnnotations.subtracting(updatedAnnotations)
+                self.mapView.removeAnnotations(Array(removedAnnotations))
+                let addedAnnotations = updatedAnnotations.subtracting(existingAnnotations)
+                self.mapView.addAnnotations(Array(addedAnnotations))
+            })
+            .disposed(by: disposeBag)
+        viewModel.regionRelay.observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [unowned self] mapRegion in
+                self.mapView.setRegion(mapRegion, animated: true)
+            })
+            .disposed(by: disposeBag)
+        viewModel.titleRelay.observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [unowned self] title in
+                self.title = title
             })
             .disposed(by: disposeBag)
         viewModel.handleViewDidLoad()
@@ -94,5 +100,9 @@ extension MapViewController: CLLocationManagerDelegate {
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         return viewModel.viewForAnnotation(annotation, inMap: mapView)
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        viewModel.handleAnnotationViewSelection(view, inMap: mapView)
     }
 }

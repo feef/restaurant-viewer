@@ -11,14 +11,26 @@ import RxSwift
 import CoreLocation
 import MapKit
 
+protocol MapViewModelDelegate: class {
+    func completeIfUnused()
+    func showDetailsForRestaurant(withId id: String)
+}
+
 class MapViewModel {
     let alertRelay = BehaviorRelay<AlertConfiguration?>(value: nil)
     let annotationsRelay = PublishRelay<[RestaurantAnnotation]>()
     let regionRelay = PublishRelay<MKCoordinateRegion>()
-    var locationManager: LocationManager
+    let titleRelay = BehaviorRelay<String>(value: Constants.loadingText)
     
     private let apiManager: APIManager
     private let disposeBag = DisposeBag()
+    private let numberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = 8
+        formatter.numberStyle = .decimal
+        return formatter
+    }()
     
     private lazy var permissionAlertConfiguration: AlertConfiguration = {
         let cancelAction = UIAlertAction(title: "Close", style: .cancel, handler: { _ in self.alertRelay.accept(nil) })
@@ -29,7 +41,11 @@ class MapViewModel {
         return AlertConfiguration(title: "Location permission required", message: "This app needs access to your current location to work properly. Please tap \"Go to settings\"and grant the app access to your location.", actions: [cancelAction, openSettingsAction])
     }()
     
-    init(apiManager: APIManager, locationManager: LocationManager) {
+    weak var delegate: MapViewModelDelegate?
+    var locationManager: LocationManager
+    
+    init(delegate: MapViewModelDelegate?, apiManager: APIManager, locationManager: LocationManager) {
+        self.delegate = delegate
         self.apiManager = apiManager
         self.locationManager = locationManager
     }
@@ -48,6 +64,10 @@ extension MapViewModel {
                 alertRelay.accept(permissionAlertConfiguration)
         }
     }
+    
+    func handleViewDidDisappear() {
+        delegate?.completeIfUnused()
+    }
 }
 
 // MARK: - Other
@@ -57,20 +77,49 @@ extension MapViewModel {
         guard let location = locations.last else {
             return
         }
-        let centerCoordinate = location.coordinate
-        let radius = Constants.defaultFetchRadius
-        apiManager.fetchRestaurants(aroundCoordinate: centerCoordinate, withRadius: radius)
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] restaurantLocations in
-                let annotations = restaurantLocations.compactMap { RestaurantAnnotation(restaurantLocation: $0) }
-                self?.annotationsRelay.accept(annotations)
-                self?.regionRelay.accept(MKCoordinateRegion(center: centerCoordinate, latitudinalMeters: radius * 2, longitudinalMeters: radius * 2))
-            })
-            .disposed(by: disposeBag)
+        fetchRestaurants(withCenterCoordinate: location.coordinate)
     }
     
-    func viewForAnnotation(_ annotation: MKAnnotation, inMap map: MKMapView) -> MKAnnotationView {
-        return map.dequeueReusableAnnotationView(withIdentifier: RestaurantAnnotationView.reuseIdentifier, for: annotation)
+    func handleAnnotationViewSelection(_ annotationView: MKAnnotationView, inMap map: MKMapView) {
+        defer {
+            map.deselectAnnotation(annotationView.annotation, animated: true)
+        }
+        guard let restaurantId = (annotationView.annotation as? RestaurantAnnotation)?.restaurantID else {
+            return
+        }
+        delegate?.showDetailsForRestaurant(withId: restaurantId)
+    }
+    
+    func viewForAnnotation(_ annotation: MKAnnotation, inMap map: MKMapView) -> MKAnnotationView? {
+        guard let restaurantAnnotation = annotation as? RestaurantAnnotation else {
+            return nil
+        }
+        return map.dequeueReusableAnnotationView(withIdentifier: RestaurantAnnotationView.reuseIdentifier, for: restaurantAnnotation)
+    }
+}
+
+// MARK: - Private
+
+extension MapViewModel {
+    private func fetchRestaurants(withCenterCoordinate centerCoordinate: CLLocationCoordinate2D, radius: Double = Constants.defaultFetchRadius) {
+        titleRelay.accept(Constants.loadingText)
+        apiManager.fetchRestaurants(aroundCoordinate: centerCoordinate, withRadius: radius)
+            .observeOn(MainScheduler.instance)
+            .subscribe(
+                onNext: { [weak self] restaurantLocations in
+                    let annotations = restaurantLocations.compactMap { RestaurantAnnotation(restaurantLocation: $0) }
+                    self?.annotationsRelay.accept(annotations)
+                    self?.regionRelay.accept(MKCoordinateRegion(center: centerCoordinate, latitudinalMeters: radius * 2, longitudinalMeters: radius * 2))
+                    let latitudeString = self?.numberFormatter.string(from: centerCoordinate.latitude as NSNumber) ?? ""
+                    let longitudeString = self?.numberFormatter.string(from: centerCoordinate.longitude as NSNumber) ?? ""
+                    let populatedText = String(format: Constants.populatedTextFormat, latitudeString, longitudeString)
+                    self?.titleRelay.accept(populatedText)
+                },
+                onError: { [weak self] _ in
+                    self?.titleRelay.accept(Constants.failedToLoadText)
+                }
+            )
+            .disposed(by: disposeBag)
     }
 }
 
@@ -79,5 +128,8 @@ extension MapViewModel {
 extension MapViewModel {
     private struct Constants {
         static let defaultFetchRadius: Double = 250
+        static let failedToLoadText = "Failed to load"
+        static let loadingText = "Loading..."
+        static let populatedTextFormat = "Loaded (%@, %@)"
     }
 }

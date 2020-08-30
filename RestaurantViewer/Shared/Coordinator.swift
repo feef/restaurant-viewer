@@ -8,6 +8,8 @@
 
 import UIKit
 
-protocol Coordinator {
+protocol Coordinator: class {
+    var parent: Coordinator? { get set }
+    func childCompleted(_ child: Coordinator)
     func start()
 }
