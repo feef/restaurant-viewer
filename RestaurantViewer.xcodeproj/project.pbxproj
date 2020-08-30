@@ -110,7 +110,7 @@
 		3E44185224FB8A5D005AB11C /* DetailsListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsListViewModelTests.swift; sourceTree = "<group>"; };
 		3E44185624FB994B005AB11C /* MKCoordinateRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKCoordinateRegion.swift; sourceTree = "<group>"; };
 		3E7A4DA624FBB86E009BFEFF /* FoursquareAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareAPIManager.swift; sourceTree = "<group>"; };
-		3E7A4DAF24FBB9A0009BFEFF /* PrivateConstants.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PrivateConstants.plist; sourceTree = "<group>"; };
+		3E7A4DAF24FBB9A0009BFEFF /* PrivateConstants.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = PrivateConstants.plist; path = ../PrivateConstants.plist; sourceTree = "<group>"; };
 		3E7A4DB124FBB9B7009BFEFF /* PrivateConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateConstants.swift; sourceTree = "<group>"; };
 		3E7A4DB324FBBA3C009BFEFF /* PlistReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistReader.swift; sourceTree = "<group>"; };
 		4C806F22E00BE7A58234223B /* Pods_RestaurantViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,11 +178,7 @@
 				3E44184E24FABF85005AB11C /* DetailsList */,
 				3E1927F724FA529B00826A76 /* Info.plist */,
 				3E1927F424FA529B00826A76 /* LaunchScreen.storyboard */,
-				3E19284224FA8F8200826A76 /* LocationManager.swift */,
 				3E19284424FA911300826A76 /* Map */,
-				3E7A4DB324FBBA3C009BFEFF /* PlistReader.swift */,
-				3E7A4DAF24FBB9A0009BFEFF /* PrivateConstants.plist */,
-				3E7A4DB124FBB9B7009BFEFF /* PrivateConstants.swift */,
 				3E19284524FA912600826A76 /* Shared */,
 			);
 			path = RestaurantViewer;
@@ -228,6 +224,9 @@
 			children = (
 				3E19282324FA68D500826A76 /* APIManager.swift */,
 				3E7A4DA624FBB86E009BFEFF /* FoursquareAPIManager.swift */,
+				3E7A4DB324FBBA3C009BFEFF /* PlistReader.swift */,
+				3E7A4DAF24FBB9A0009BFEFF /* PrivateConstants.plist */,
+				3E7A4DB124FBB9B7009BFEFF /* PrivateConstants.swift */,
 				3E19282B24FA6EE900826A76 /* RestaurantDetailsResponse.swift */,
 				3E19282D24FA716800826A76 /* RestaurantLocationsResponse.swift */,
 			);
@@ -237,6 +236,8 @@
 		3E19284424FA911300826A76 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				3E19284024FA83C800826A76 /* AlertConfiguration.swift */,
+				3E19284224FA8F8200826A76 /* LocationManager.swift */,
 				3E19283824FA7E6900826A76 /* MapCoordinator.swift */,
 				3E19283C24FA7F1900826A76 /* MapViewController.swift */,
 				3E19283E24FA7FA200826A76 /* MapViewModel.swift */,
@@ -252,7 +253,6 @@
 		3E19284524FA912600826A76 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				3E19284024FA83C800826A76 /* AlertConfiguration.swift */,
 				3E19283A24FA7E7200826A76 /* Coordinator.swift */,
 			);
 			path = Shared;
